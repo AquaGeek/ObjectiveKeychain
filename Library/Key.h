@@ -37,7 +37,9 @@ typedef enum
 typedef enum
 {
    kKeyTypeRSA = 0,
+#if !TARGET_IPHONE_SIMULATOR
    kKeyTypeEC
+#endif
 } KeyType;
 
 @interface Key : KeychainItem
