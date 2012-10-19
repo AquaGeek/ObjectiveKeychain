@@ -43,7 +43,7 @@
 
 - (CFTypeRef)classCode
 {
-   return kSecClassInternetPassword;
+    return kSecClassInternetPassword;
 }
 
 
@@ -51,67 +51,67 @@
 
 - (NSString *)securityDomain
 {
-   return [self objectForKey:(id)kSecAttrSecurityDomain];
+    return [self objectForKey:(id)kSecAttrSecurityDomain];
 }
 
 - (void)setSecurityDomain:(NSString *)newDomain
 {
-   [self setObject:newDomain forKey:(id)kSecAttrSecurityDomain];
+    [self setObject:newDomain forKey:(id)kSecAttrSecurityDomain];
 }
 
 - (NSString *)server
 {
-   return [self objectForKey:(id)kSecAttrServer];
+    return [self objectForKey:(id)kSecAttrServer];
 }
 
 - (void)setServer:(NSString *)newServer
 {
-   [self setObject:newServer forKey:(id)kSecAttrServer];
+    [self setObject:newServer forKey:(id)kSecAttrServer];
 }
 
 - (OKNetworkProtocol)protocol
 {
-   CFTypeRef protocolValue = [self objectForKey:(id)kSecAttrProtocol];
-   return [self.protocols indexOfObject:(id)protocolValue];
+    CFTypeRef protocolValue = [self objectForKey:(id)kSecAttrProtocol];
+    return [self.protocols indexOfObject:(id)protocolValue];
 }
 
 - (void)setProtocol:(OKNetworkProtocol)newProtocol
 {
-   CFTypeRef protocolValue = [self.protocols objectAtIndex:newProtocol];
-   [self setObject:(id)protocolValue forKey:(id)kSecAttrProtocol];
+    CFTypeRef protocolValue = [self.protocols objectAtIndex:newProtocol];
+    [self setObject:(id)protocolValue forKey:(id)kSecAttrProtocol];
 }
 
 - (OKAuthenticationType)authenticationType
 {
-   CFTypeRef authType = [self objectForKey:(id)kSecAttrAuthenticationType];
-   return [self.authenticationTypes indexOfObject:(id)authType];
+    CFTypeRef authType = [self objectForKey:(id)kSecAttrAuthenticationType];
+    return [self.authenticationTypes indexOfObject:(id)authType];
 }
 
 - (void)setAuthenticationType:(OKAuthenticationType)newAuthType
 {
-   CFTypeRef authType = [self.authenticationTypes objectAtIndex:newAuthType];
-   [self setObject:(id)authType forKey:(id)kSecAttrAuthenticationType];
+    CFTypeRef authType = [self.authenticationTypes objectAtIndex:newAuthType];
+    [self setObject:(id)authType forKey:(id)kSecAttrAuthenticationType];
 }
 
 - (NSUInteger)port
 {
-   return [[self objectForKey:(id)kSecAttrPort] unsignedIntegerValue];
+    return [[self objectForKey:(id)kSecAttrPort] unsignedIntegerValue];
 }
 
 - (void)setPort:(NSUInteger)newPort
 {
-   [self setObject:[NSNumber numberWithUnsignedInteger:newPort]
-            forKey:(id)kSecAttrPort];
+    [self setObject:[NSNumber numberWithUnsignedInteger:newPort]
+             forKey:(id)kSecAttrPort];
 }
 
 - (NSString *)path
 {
-   return [self objectForKey:(id)kSecAttrPath];
+    return [self objectForKey:(id)kSecAttrPath];
 }
 
 - (void)setPath:(NSString *)newPath
 {
-   [self setObject:newPath forKey:(id)kSecAttrPath];
+    [self setObject:newPath forKey:(id)kSecAttrPath];
 }
 
 @end
@@ -123,64 +123,64 @@
 
 - (NSArray *)protocols
 {
-   static NSArray *protocols = nil;
+    static NSArray *protocols = nil;
     
-   static dispatch_once_t onceToken;
-   dispatch_once(&onceToken, ^{
-      protocols = [[NSArray alloc] initWithObjects:
-                   (id)kSecAttrProtocolFTP,
-                   (id)kSecAttrProtocolFTPAccount,
-                   (id)kSecAttrProtocolHTTP,
-                   (id)kSecAttrProtocolIRC,
-                   (id)kSecAttrProtocolNNTP,
-                   (id)kSecAttrProtocolPOP3,
-                   (id)kSecAttrProtocolSMTP,
-                   (id)kSecAttrProtocolSOCKS,
-                   (id)kSecAttrProtocolIMAP,
-                   (id)kSecAttrProtocolLDAP,
-                   (id)kSecAttrProtocolAppleTalk,
-                   (id)kSecAttrProtocolAFP,
-                   (id)kSecAttrProtocolTelnet,
-                   (id)kSecAttrProtocolSSH,
-                   (id)kSecAttrProtocolFTPS,
-                   (id)kSecAttrProtocolHTTPS,
-                   (id)kSecAttrProtocolHTTPProxy,
-                   (id)kSecAttrProtocolHTTPSProxy,
-                   (id)kSecAttrProtocolFTPProxy,
-                   (id)kSecAttrProtocolSMB,
-                   (id)kSecAttrProtocolRTSP,
-                   (id)kSecAttrProtocolRTSPProxy,
-                   (id)kSecAttrProtocolDAAP,
-                   (id)kSecAttrProtocolEPPC,
-                   (id)kSecAttrProtocolIPP,
-                   (id)kSecAttrProtocolNNTPS,
-                   (id)kSecAttrProtocolLDAPS,
-                   (id)kSecAttrProtocolTelnetS,
-                   (id)kSecAttrProtocolIMAPS,
-                   (id)kSecAttrProtocolIRCS,
-                   (id)kSecAttrProtocolPOP3S, nil];
-   });
-   
-   return protocols;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        protocols = [[NSArray alloc] initWithObjects:
+                     (id)kSecAttrProtocolFTP,
+                     (id)kSecAttrProtocolFTPAccount,
+                     (id)kSecAttrProtocolHTTP,
+                     (id)kSecAttrProtocolIRC,
+                     (id)kSecAttrProtocolNNTP,
+                     (id)kSecAttrProtocolPOP3,
+                     (id)kSecAttrProtocolSMTP,
+                     (id)kSecAttrProtocolSOCKS,
+                     (id)kSecAttrProtocolIMAP,
+                     (id)kSecAttrProtocolLDAP,
+                     (id)kSecAttrProtocolAppleTalk,
+                     (id)kSecAttrProtocolAFP,
+                     (id)kSecAttrProtocolTelnet,
+                     (id)kSecAttrProtocolSSH,
+                     (id)kSecAttrProtocolFTPS,
+                     (id)kSecAttrProtocolHTTPS,
+                     (id)kSecAttrProtocolHTTPProxy,
+                     (id)kSecAttrProtocolHTTPSProxy,
+                     (id)kSecAttrProtocolFTPProxy,
+                     (id)kSecAttrProtocolSMB,
+                     (id)kSecAttrProtocolRTSP,
+                     (id)kSecAttrProtocolRTSPProxy,
+                     (id)kSecAttrProtocolDAAP,
+                     (id)kSecAttrProtocolEPPC,
+                     (id)kSecAttrProtocolIPP,
+                     (id)kSecAttrProtocolNNTPS,
+                     (id)kSecAttrProtocolLDAPS,
+                     (id)kSecAttrProtocolTelnetS,
+                     (id)kSecAttrProtocolIMAPS,
+                     (id)kSecAttrProtocolIRCS,
+                     (id)kSecAttrProtocolPOP3S, nil];
+    });
+    
+    return protocols;
 }
 
 - (NSArray *)authenticationTypes
 {
-   static NSArray *authenticationTypes = nil;
-   
-   static dispatch_once_t onceToken;
-   dispatch_once(&onceToken, ^{
-      authenticationTypes = [[NSArray alloc] initWithObjects:
-                             (id)kSecAttrAuthenticationTypeNTLM,
-                             (id)kSecAttrAuthenticationTypeDPA,
-                             (id)kSecAttrAuthenticationTypeRPA,
-                             (id)kSecAttrAuthenticationTypeHTTPBasic,
-                             (id)kSecAttrAuthenticationTypeHTTPDigest,
-                             (id)kSecAttrAuthenticationTypeHTMLForm,
-                             (id)kSecAttrAuthenticationTypeDefault, nil];
-   });
-   
-   return authenticationTypes;
+    static NSArray *authenticationTypes = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        authenticationTypes = [[NSArray alloc] initWithObjects:
+                               (id)kSecAttrAuthenticationTypeNTLM,
+                               (id)kSecAttrAuthenticationTypeDPA,
+                               (id)kSecAttrAuthenticationTypeRPA,
+                               (id)kSecAttrAuthenticationTypeHTTPBasic,
+                               (id)kSecAttrAuthenticationTypeHTTPDigest,
+                               (id)kSecAttrAuthenticationTypeHTMLForm,
+                               (id)kSecAttrAuthenticationTypeDefault, nil];
+    });
+    
+    return authenticationTypes;
 }
 
 @end

@@ -41,86 +41,86 @@
 
 - (id)init
 {
-   return [self initWithLabel:nil accessGroup:nil];
+    return [self initWithLabel:nil accessGroup:nil];
 }
 
 - (id)initWithLabel:(NSString *)label accessGroup:(NSString *)accessGroup
 {
-   if (self = [super init])
-   {
-      // Begin Keychain search setup.
-      _itemQuery = [[NSMutableDictionary alloc] init];
-      
-      [_itemQuery setObject:(id)[self classCode] forKey:(id)kSecClass];
-      [_itemQuery setObject:label forKey:(id)kSecAttrLabel];
-      
-      // The keychain access group attribute determines if this item can be shared
-      // amongst multiple apps whose code signing entitlements contain the same keychain access group.
-      if (accessGroup != nil)
-      {
-#if TARGET_IPHONE_SIMULATOR
-         // Ignore the access group if running on the iPhone simulator.
-         // 
-         // Apps that are built for the simulator aren't signed, so there's no keychain access group
-         // for the simulator to check. This means that all apps can see all keychain items when run
-         // on the simulator.
-         //
-         // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
-         // simulator will return -25243 (errSecNoAccessForItem).
-#else           
-         [_itemQuery setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
-#endif
-      }
-      
-      // Use the proper search constants, return only the attributes of the first match.
-      [_itemQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-      [_itemQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
-      
-      NSDictionary *tempQuery = [NSDictionary dictionaryWithDictionary:_itemQuery];
-      NSMutableDictionary *outDictionary = nil;
-      
-      if (!SecItemCopyMatching((CFDictionaryRef)tempQuery, (CFTypeRef *)&outDictionary) == noErr)
-      {
-         // Stick these default values into keychain item if nothing found.
-         [self resetKeychainItem];
-         
-         // Add the generic attribute and the keychain access group.
-         self.label = label;
-         
-         if (accessGroup != nil)
-         {
+    if (self = [super init])
+    {
+        // Begin Keychain search setup.
+        _itemQuery = [[NSMutableDictionary alloc] init];
+        
+        [_itemQuery setObject:(id)[self classCode] forKey:(id)kSecClass];
+        [_itemQuery setObject:label forKey:(id)kSecAttrLabel];
+        
+        // The keychain access group attribute determines if this item can be shared
+        // amongst multiple apps whose code signing entitlements contain the same keychain access group.
+        if (accessGroup != nil)
+        {
 #if TARGET_IPHONE_SIMULATOR
             // Ignore the access group if running on the iPhone simulator.
-            // 
+            //
             // Apps that are built for the simulator aren't signed, so there's no keychain access group
             // for the simulator to check. This means that all apps can see all keychain items when run
             // on the simulator.
             //
             // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
             // simulator will return -25243 (errSecNoAccessForItem).
-#else           
-            self.accessGroup = accessGroup;
+#else
+            [_itemQuery setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
 #endif
-         }
-      }
-      else
-      {
-         // Load the saved data from the Keychain.
-         _keychainItemData = [[self secItemFormatToDictionary:outDictionary] retain];
-      }
-      
-      [outDictionary release];
-   }
-   
-   return self;
+        }
+        
+        // Use the proper search constants, return only the attributes of the first match.
+        [_itemQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
+        [_itemQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
+        
+        NSDictionary *tempQuery = [NSDictionary dictionaryWithDictionary:_itemQuery];
+        NSMutableDictionary *outDictionary = nil;
+        
+        if (!SecItemCopyMatching((CFDictionaryRef)tempQuery, (CFTypeRef *)&outDictionary) == noErr)
+        {
+            // Stick these default values into keychain item if nothing found.
+            [self resetKeychainItem];
+            
+            // Add the generic attribute and the keychain access group.
+            self.label = label;
+            
+            if (accessGroup != nil)
+            {
+#if TARGET_IPHONE_SIMULATOR
+                // Ignore the access group if running on the iPhone simulator.
+                //
+                // Apps that are built for the simulator aren't signed, so there's no keychain access group
+                // for the simulator to check. This means that all apps can see all keychain items when run
+                // on the simulator.
+                //
+                // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
+                // simulator will return -25243 (errSecNoAccessForItem).
+#else
+                self.accessGroup = accessGroup;
+#endif
+            }
+        }
+        else
+        {
+            // Load the saved data from the Keychain.
+            _keychainItemData = [[self secItemFormatToDictionary:outDictionary] retain];
+        }
+        
+        [outDictionary release];
+    }
+    
+    return self;
 }
 
 - (void)dealloc
 {
-   [_keychainItemData release];
-   [_itemQuery release];
-   
-   [super dealloc];
+    [_keychainItemData release];
+    [_itemQuery release];
+    
+    [super dealloc];
 }
 
 
@@ -128,133 +128,133 @@
 
 - (BOOL)writeToKeychain:(NSError **)error
 {
-   if (!_dirty)
-   {
-      return NO;
-   }
-   
-   NSDictionary *attributes = NULL;
-   NSMutableDictionary *updateItem = NULL;
-   OSStatus result;
-   
-   // See if the item already exists in the Keychain
-   result = SecItemCopyMatching((CFDictionaryRef)_itemQuery, (CFTypeRef *)&attributes);
-   if (result == noErr)
-   {
-      // First we need the attributes from the Keychain.
-      updateItem = [NSMutableDictionary dictionaryWithDictionary:attributes];
-      
-      // Second we need to add the appropriate search key/values.
-      [updateItem setObject:[_itemQuery objectForKey:(id)kSecClass] forKey:(id)kSecClass];
-      
-      // Lastly, we need to set up the updated attribute list, being careful to remove the class.
-      NSMutableDictionary *tempCheck = [self dictionaryToSecItemFormat:_keychainItemData];
-      [tempCheck removeObjectForKey:(id)kSecClass];
-      
+    if (!_dirty)
+    {
+        return NO;
+    }
+    
+    NSDictionary *attributes = NULL;
+    NSMutableDictionary *updateItem = NULL;
+    OSStatus result;
+    
+    // See if the item already exists in the Keychain
+    result = SecItemCopyMatching((CFDictionaryRef)_itemQuery, (CFTypeRef *)&attributes);
+    if (result == noErr)
+    {
+        // First we need the attributes from the Keychain.
+        updateItem = [NSMutableDictionary dictionaryWithDictionary:attributes];
+        
+        // Second we need to add the appropriate search key/values.
+        [updateItem setObject:[_itemQuery objectForKey:(id)kSecClass] forKey:(id)kSecClass];
+        
+        // Lastly, we need to set up the updated attribute list, being careful to remove the class.
+        NSMutableDictionary *tempCheck = [self dictionaryToSecItemFormat:_keychainItemData];
+        [tempCheck removeObjectForKey:(id)kSecClass];
+        
 #if TARGET_IPHONE_SIMULATOR
-      // Remove the access group if running on the iPhone simulator.
-      // 
-      // Apps that are built for the simulator aren't signed, so there's no keychain access group
-      // for the simulator to check. This means that all apps can see all keychain items when run
-      // on the simulator.
-      //
-      // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
-      // simulator will return -25243 (errSecNoAccessForItem).
-      //
-      // The access group attribute will be included in items returned by SecItemCopyMatching,
-      // which is why we need to remove it before updating the item.
-      [tempCheck removeObjectForKey:(id)kSecAttrAccessGroup];
+        // Remove the access group if running on the iPhone simulator.
+        //
+        // Apps that are built for the simulator aren't signed, so there's no keychain access group
+        // for the simulator to check. This means that all apps can see all keychain items when run
+        // on the simulator.
+        //
+        // If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
+        // simulator will return -25243 (errSecNoAccessForItem).
+        //
+        // The access group attribute will be included in items returned by SecItemCopyMatching,
+        // which is why we need to remove it before updating the item.
+        [tempCheck removeObjectForKey:(id)kSecAttrAccessGroup];
 #endif
-      
-      // An implicit assumption is that you can only update a single item at a time.
-      result = SecItemUpdate((CFDictionaryRef)updateItem, (CFDictionaryRef)tempCheck);
-      NSAssert(result == noErr, @"Couldn't update the Keychain Item.");
-   }
-   else
-   {
-      // No existing item found; add the new one.
-      result = SecItemAdd((CFDictionaryRef)[self dictionaryToSecItemFormat:_keychainItemData], NULL);
-      NSAssert(result == noErr, @"Couldn't add the Keychain Item.");
-   }
-   
-   _dirty = NO;
-   
-   return YES;
+        
+        // An implicit assumption is that you can only update a single item at a time.
+        result = SecItemUpdate((CFDictionaryRef)updateItem, (CFDictionaryRef)tempCheck);
+        NSAssert(result == noErr, @"Couldn't update the Keychain Item.");
+    }
+    else
+    {
+        // No existing item found; add the new one.
+        result = SecItemAdd((CFDictionaryRef)[self dictionaryToSecItemFormat:_keychainItemData], NULL);
+        NSAssert(result == noErr, @"Couldn't add the Keychain Item.");
+    }
+    
+    _dirty = NO;
+    
+    return YES;
 }
 
 - (void)deleteFromKeychain
 {
-   if (_keychainItemData == nil)
-   {
-      return;
-   }
-   
-   OSStatus junk = noErr;
-   NSMutableDictionary *tempDictionary = [self dictionaryToSecItemFormat:_keychainItemData];
-   junk = SecItemDelete((CFDictionaryRef)tempDictionary);
-   NSAssert(junk == noErr || junk == errSecItemNotFound, @"Problem deleting keychain item.");
+    if (_keychainItemData == nil)
+    {
+        return;
+    }
+    
+    OSStatus junk = noErr;
+    NSMutableDictionary *tempDictionary = [self dictionaryToSecItemFormat:_keychainItemData];
+    junk = SecItemDelete((CFDictionaryRef)tempDictionary);
+    NSAssert(junk == noErr || junk == errSecItemNotFound, @"Problem deleting keychain item.");
 }
 
 - (void)resetKeychainItem
 {
-   if (_keychainItemData == nil)
-   {
-      _keychainItemData = [[NSMutableDictionary alloc] init];
-   }
-   else if (_keychainItemData != nil)
-   {
-      [self deleteFromKeychain];
-   }
-   
-   // Default attributes for keychain item
-   [_keychainItemData setObject:@"" forKey:(id)kSecAttrLabel];
+    if (_keychainItemData == nil)
+    {
+        _keychainItemData = [[NSMutableDictionary alloc] init];
+    }
+    else if (_keychainItemData != nil)
+    {
+        [self deleteFromKeychain];
+    }
+    
+    // Default attributes for keychain item
+    [_keychainItemData setObject:@"" forKey:(id)kSecAttrLabel];
 }
 
 - (NSMutableDictionary *)dictionaryToSecItemFormat:(NSDictionary *)dictionaryToConvert
 {
-   // The assumption is that this method will be called with a properly populated dictionary
-   // containing all the right key/value pairs for a SecItem.
-   
-   // Create a dictionary to return populated with the attributes and data.
-   NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionaryWithDictionary:dictionaryToConvert];
-   
-   // Add the class attribute.
-   [returnDictionary setObject:(id)[self classCode] forKey:(id)kSecClass];
-   
-   return returnDictionary;
+    // The assumption is that this method will be called with a properly populated dictionary
+    // containing all the right key/value pairs for a SecItem.
+    
+    // Create a dictionary to return populated with the attributes and data.
+    NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionaryWithDictionary:dictionaryToConvert];
+    
+    // Add the class attribute.
+    [returnDictionary setObject:(id)[self classCode] forKey:(id)kSecClass];
+    
+    return returnDictionary;
 }
 
 - (NSMutableDictionary *)secItemFormatToDictionary:(NSDictionary *)dictionaryToConvert
 {
-   // The assumption is that this method will be called with a properly populated
-   // dictionary containing all the right key/value pairs for the UI element.
-   
-   // Create a dictionary to return populated with the attributes and data.
-   NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionaryWithDictionary:dictionaryToConvert];
-   
-   // Add the proper search key and class attribute.
-   [returnDictionary setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
-   [returnDictionary setObject:(id)[self classCode] forKey:(id)kSecClass];
-   
-   // Acquire the item data from the attributes.
-   NSData *itemData = NULL;
-   
-   if (SecItemCopyMatching((CFDictionaryRef)returnDictionary, (CFTypeRef *)&itemData) == noErr)
-   {
-      // Remove the search, class, and identifier key/value, we don't need them anymore.
-      [returnDictionary removeObjectForKey:(id)kSecReturnData];
-      
-      [returnDictionary setObject:itemData forKey:(id)kSecValueData];      
-   }
-   else
-   {
-      // Don't do anything if nothing is found.
-      NSAssert(NO, @"Serious error, no matching item found in the keychain.\n");
-   }
-   
-   [itemData release];
-   
-   return returnDictionary;
+    // The assumption is that this method will be called with a properly populated
+    // dictionary containing all the right key/value pairs for the UI element.
+    
+    // Create a dictionary to return populated with the attributes and data.
+    NSMutableDictionary *returnDictionary = [NSMutableDictionary dictionaryWithDictionary:dictionaryToConvert];
+    
+    // Add the proper search key and class attribute.
+    [returnDictionary setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
+    [returnDictionary setObject:(id)[self classCode] forKey:(id)kSecClass];
+    
+    // Acquire the item data from the attributes.
+    NSData *itemData = NULL;
+    
+    if (SecItemCopyMatching((CFDictionaryRef)returnDictionary, (CFTypeRef *)&itemData) == noErr)
+    {
+        // Remove the search, class, and identifier key/value, we don't need them anymore.
+        [returnDictionary removeObjectForKey:(id)kSecReturnData];
+        
+        [returnDictionary setObject:itemData forKey:(id)kSecValueData];
+    }
+    else
+    {
+        // Don't do anything if nothing is found.
+        NSAssert(NO, @"Serious error, no matching item found in the keychain.\n");
+    }
+    
+    [itemData release];
+    
+    return returnDictionary;
 }
 
 
@@ -262,11 +262,11 @@
 
 - (CFTypeRef)classCode
 {
-   [NSException raise:@"OKSubclassMethodImplementationMissingException"
-               format:@"Abstract superclass 'OKKeychainItem' does not implement 'classCode.'" \
-                      "It must be implemented by the subclass."];
-   
-   return nil;
+    [NSException raise:@"OKSubclassMethodImplementationMissingException"
+                format:@"Abstract superclass 'OKKeychainItem' does not implement 'classCode.'" \
+     "It must be implemented by the subclass."];
+    
+    return nil;
 }
 
 
@@ -274,33 +274,33 @@
 
 - (id)objectForKey:(id)key
 {
-   return [_keychainItemData objectForKey:key];
+    return [_keychainItemData objectForKey:key];
 }
 
 - (void)setObject:(id)object forKey:(id)key
 {
-   _dirty = YES;
-   [_keychainItemData setObject:object forKey:key];
+    _dirty = YES;
+    [_keychainItemData setObject:object forKey:key];
 }
 
 - (NSString *)accessGroup
 {
-   return [_keychainItemData objectForKey:(id)kSecAttrAccessGroup];
+    return [_keychainItemData objectForKey:(id)kSecAttrAccessGroup];
 }
 
 - (void)setAccessGroup:(NSString *)newGroup
 {
-   [_keychainItemData setObject:newGroup forKey:(id)kSecAttrAccessGroup];
+    [_keychainItemData setObject:newGroup forKey:(id)kSecAttrAccessGroup];
 }
 
 - (NSString *)label
 {
-   return [_keychainItemData objectForKey:(id)kSecAttrLabel];
+    return [_keychainItemData objectForKey:(id)kSecAttrLabel];
 }
 
 - (void)setLabel:(NSString *)newLabel
 {
-   [_keychainItemData setObject:newLabel forKey:(id)kSecAttrLabel];
+    [_keychainItemData setObject:newLabel forKey:(id)kSecAttrLabel];
 }
 
 @end

@@ -33,43 +33,43 @@
 
 - (void)resetKeychainItem
 {
-   [super resetKeychainItem];
-   
-   // Default attributes
-   self.account = @"";
-   self.userDescription = @"";
-   self.password = @"";
+    [super resetKeychainItem];
+    
+    // Default attributes
+    self.account = @"";
+    self.userDescription = @"";
+    self.password = @"";
 }
 
 - (NSMutableDictionary *)dictionaryToSecItemFormat:(NSDictionary *)dictionaryToConvert
 {
-   NSMutableDictionary *returnDict = [super dictionaryToSecItemFormat:dictionaryToConvert];
-   
-   // This is where to store sensitive data that should be encrypted.
-   //
-   // Convert the NSString to NSData to meet the requirements for the value
-   // type kSecValueData.
-   NSString *password = [dictionaryToConvert objectForKey:(id)kSecValueData];
-   NSData *encodedPassword = [password dataUsingEncoding:NSUTF8StringEncoding];
-   
-   [returnDict setObject:encodedPassword forKey:(id)kSecValueData];
-   
-   return returnDict;
+    NSMutableDictionary *returnDict = [super dictionaryToSecItemFormat:dictionaryToConvert];
+    
+    // This is where to store sensitive data that should be encrypted.
+    //
+    // Convert the NSString to NSData to meet the requirements for the value
+    // type kSecValueData.
+    NSString *password = [dictionaryToConvert objectForKey:(id)kSecValueData];
+    NSData *encodedPassword = [password dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [returnDict setObject:encodedPassword forKey:(id)kSecValueData];
+    
+    return returnDict;
 }
 
 - (NSMutableDictionary *)secItemFormatToDictionary:(NSDictionary *)dictionaryToConvert
 {
-   NSMutableDictionary *returnDict = [super secItemFormatToDictionary:dictionaryToConvert];
-   
-   // Convert the password from NSData to NSString.
-   NSData *passwordData = [returnDict valueForKey:(id)kSecValueData];
-   NSString *password = [[[NSString alloc] initWithBytes:[passwordData bytes]
-                                                  length:[passwordData length] 
-                                                encoding:NSUTF8StringEncoding] autorelease];
-   
-   [returnDict setObject:password forKey:(id)kSecValueData];
-   
-   return returnDict;
+    NSMutableDictionary *returnDict = [super secItemFormatToDictionary:dictionaryToConvert];
+    
+    // Convert the password from NSData to NSString.
+    NSData *passwordData = [returnDict valueForKey:(id)kSecValueData];
+    NSString *password = [[[NSString alloc] initWithBytes:[passwordData bytes]
+                                                   length:[passwordData length]
+                                                 encoding:NSUTF8StringEncoding] autorelease];
+    
+    [returnDict setObject:password forKey:(id)kSecValueData];
+    
+    return returnDict;
 }
 
 
@@ -77,114 +77,114 @@
 
 - (NSDate *)creationDate
 {
-   return [self objectForKey:(id)kSecAttrCreationDate];
+    return [self objectForKey:(id)kSecAttrCreationDate];
 }
 
 - (NSDate *)modificationDate
 {
-   return [self objectForKey:(id)kSecAttrModificationDate];
+    return [self objectForKey:(id)kSecAttrModificationDate];
 }
 
 - (NSString *)userDescription
 {
-   return [self objectForKey:(id)kSecAttrDescription];
+    return [self objectForKey:(id)kSecAttrDescription];
 }
 
 - (void)setUserDescription:(NSString *)newDescription
 {
-   [self setObject:newDescription forKey:(id)kSecAttrDescription];
+    [self setObject:newDescription forKey:(id)kSecAttrDescription];
 }
 
 - (NSString *)comment
 {
-   return [self objectForKey:(id)kSecAttrComment];
+    return [self objectForKey:(id)kSecAttrComment];
 }
 
 - (void)setComment:(NSString *)newComment
 {
-   [self setObject:newComment forKey:(id)kSecAttrComment];
+    [self setObject:newComment forKey:(id)kSecAttrComment];
 }
 
 - (NSUInteger)creator
 {
-   return [[self objectForKey:(id)kSecAttrCreator] unsignedIntegerValue];
+    return [[self objectForKey:(id)kSecAttrCreator] unsignedIntegerValue];
 }
 
 - (void)setCreator:(NSUInteger)newCreator
 {
-   [self setObject:[NSNumber numberWithUnsignedInteger:newCreator]
-            forKey:(id)kSecAttrCreator];
+    [self setObject:[NSNumber numberWithUnsignedInteger:newCreator]
+             forKey:(id)kSecAttrCreator];
 }
 
 - (NSUInteger)type
 {
-   return [[self objectForKey:(id)kSecAttrType] unsignedIntegerValue];
+    return [[self objectForKey:(id)kSecAttrType] unsignedIntegerValue];
 }
 
 - (void)setType:(NSUInteger)newType
 {
-   [self setObject:[NSNumber numberWithUnsignedInteger:newType]
-            forKey:(id)kSecAttrType];
+    [self setObject:[NSNumber numberWithUnsignedInteger:newType]
+             forKey:(id)kSecAttrType];
 }
 
 - (BOOL)isInvisible
 {
-   CFBooleanRef value = (CFBooleanRef)[self objectForKey:(id)kSecAttrIsInvisible];
-   
-   if (value != nil)
-   {
-      return CFBooleanGetValue(value);
-   }
-   else
-   {
-      return NO;
-   }
+    CFBooleanRef value = (CFBooleanRef)[self objectForKey:(id)kSecAttrIsInvisible];
+    
+    if (value != nil)
+    {
+        return CFBooleanGetValue(value);
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 - (void)setInvisible:(BOOL)isInvisible
 {
-   CFBooleanRef newValue = isInvisible ? kCFBooleanTrue : kCFBooleanFalse;
-   [self setObject:(id)newValue forKey:(id)kSecAttrIsInvisible];
+    CFBooleanRef newValue = isInvisible ? kCFBooleanTrue : kCFBooleanFalse;
+    [self setObject:(id)newValue forKey:(id)kSecAttrIsInvisible];
 }
 
 - (BOOL)isNegative
 {
-   CFBooleanRef value = (CFBooleanRef)[self objectForKey:(id)kSecAttrIsNegative];
-   
-   if (value != nil)
-   {
-      return CFBooleanGetValue(value);
-   }
-   else
-   {
-      return NO;
-   }
+    CFBooleanRef value = (CFBooleanRef)[self objectForKey:(id)kSecAttrIsNegative];
+    
+    if (value != nil)
+    {
+        return CFBooleanGetValue(value);
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 - (void)setNegative:(BOOL)isNegative
 {
-   CFBooleanRef newValue = isNegative ? kCFBooleanTrue : kCFBooleanFalse;
-   [self setObject:(id)newValue forKey:(id)kSecAttrIsNegative];
+    CFBooleanRef newValue = isNegative ? kCFBooleanTrue : kCFBooleanFalse;
+    [self setObject:(id)newValue forKey:(id)kSecAttrIsNegative];
 }
 
 - (NSString *)account
 {
-   return [self objectForKey:(id)kSecAttrAccount];
+    return [self objectForKey:(id)kSecAttrAccount];
 }
 
 - (void)setAccount:(NSString *)newAccount
 {
-   [self setObject:newAccount forKey:(id)kSecAttrAccount];
+    [self setObject:newAccount forKey:(id)kSecAttrAccount];
 }
 
 - (NSString *)password
 {
-   return [self objectForKey:(id)kSecValueData];
+    return [self objectForKey:(id)kSecValueData];
 }
 
 - (void)setPassword:(NSString *)newPassword
 {
-   [self setObject:newPassword forKey:(id)kSecValueData];
+    [self setObject:newPassword forKey:(id)kSecValueData];
 }
 
 @end

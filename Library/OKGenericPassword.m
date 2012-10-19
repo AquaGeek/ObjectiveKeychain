@@ -33,7 +33,7 @@
 
 - (CFTypeRef)classCode
 {
-   return kSecClassGenericPassword;
+    return kSecClassGenericPassword;
 }
 
 
@@ -41,22 +41,22 @@
 
 - (NSString *)service
 {
-   return [self objectForKey:(id)kSecAttrService];
+    return [self objectForKey:(id)kSecAttrService];
 }
 
 - (void)setService:(NSString *)newService
 {
-   [self setObject:newService forKey:(id)kSecAttrService];
+    [self setObject:newService forKey:(id)kSecAttrService];
 }
 
 - (NSData *)genericData
 {
-   return [self objectForKey:(id)kSecAttrGeneric];
+    return [self objectForKey:(id)kSecAttrGeneric];
 }
 
 - (void)setGenericData:(NSData *)newGenericData
 {
-   [self setObject:newGenericData forKey:(id)kSecAttrGeneric];
+    [self setObject:newGenericData forKey:(id)kSecAttrGeneric];
 }
 
 @end
