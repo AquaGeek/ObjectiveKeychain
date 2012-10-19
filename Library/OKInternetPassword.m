@@ -124,9 +124,9 @@
 - (NSArray *)protocols
 {
    static NSArray *protocols = nil;
-   
-   if (protocols == nil)
-   {
+    
+   static dispatch_once_t onceToken;
+   dispatch_once(&onceToken, ^{
       protocols = [[NSArray alloc] initWithObjects:
                    (id)kSecAttrProtocolFTP,
                    (id)kSecAttrProtocolFTPAccount,
@@ -159,7 +159,7 @@
                    (id)kSecAttrProtocolIMAPS,
                    (id)kSecAttrProtocolIRCS,
                    (id)kSecAttrProtocolPOP3S, nil];
-   }
+   });
    
    return protocols;
 }
@@ -168,8 +168,8 @@
 {
    static NSArray *authenticationTypes = nil;
    
-   if (authenticationTypes == nil)
-   {
+   static dispatch_once_t onceToken;
+   dispatch_once(&onceToken, ^{
       authenticationTypes = [[NSArray alloc] initWithObjects:
                              (id)kSecAttrAuthenticationTypeNTLM,
                              (id)kSecAttrAuthenticationTypeDPA,
@@ -178,7 +178,7 @@
                              (id)kSecAttrAuthenticationTypeHTTPDigest,
                              (id)kSecAttrAuthenticationTypeHTMLForm,
                              (id)kSecAttrAuthenticationTypeDefault, nil];
-   }
+   });
    
    return authenticationTypes;
 }

@@ -124,13 +124,13 @@
 {
    static NSArray *keyClasses = nil;
    
-   if (keyClasses == nil)
-   {
+   static dispatch_once_t onceToken;
+   dispatch_once(&onceToken, ^{
       keyClasses = [[NSArray alloc] initWithObjects:
                     (id)kSecAttrKeyClassPublic,
                     (id)kSecAttrKeyClassPrivate,
                     (id)kSecAttrKeyClassSymmetric, nil];
-   }
+   });
    
    return keyClasses;
 }
@@ -139,12 +139,12 @@
 {
    static NSArray *keyTypes = nil;
    
-   if (keyTypes == nil)
-   {
+   static dispatch_once_t onceToken;
+   dispatch_once(&onceToken, ^{
       keyTypes = [[NSArray alloc] initWithObjects:
                   (id)kSecAttrKeyTypeRSA,
                   (id)kSecAttrKeyTypeEC, nil];
-   }
+   });
    
    return keyTypes;
 }
