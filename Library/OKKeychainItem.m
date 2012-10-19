@@ -1,5 +1,5 @@
 //
-//  KeychainItem.m
+//  OKKeychainItem.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,13 +23,13 @@
 //  THE SOFTWARE.
 //
 
-#import "KeychainItem.h"
+#import "OKKeychainItem.h"
 
 #import <Security/Security.h>
 
-#import "KeychainItemSubclass.h"
+#import "OKKeychainItemSubclass.h"
 
-@implementation KeychainItem
+@implementation OKKeychainItem
 
 @dynamic accessGroup;
 @dynamic label;

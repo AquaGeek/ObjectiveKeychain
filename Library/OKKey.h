@@ -1,5 +1,5 @@
 //
-//  Key.h
+//  OKKey.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -25,7 +25,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KeychainItem.h"
+#import "OKKeychainItem.h"
 
 typedef enum
 {
@@ -40,7 +40,7 @@ typedef enum
    kKeyTypeEC
 } KeyType;
 
-@interface Key : KeychainItem
+@interface OKKey : OKKeychainItem
 {
 }
 

@@ -1,5 +1,5 @@
 //
-//  Identity.h
+//  OKCertificate.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -22,14 +22,61 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 //
-//  An identity is a certificate together with its associated private key.
-//  Because an identity is the combination of a private key and a certificate,
-//  this class shares attributes of both kSecClassKey and kSecClassCertificate.
 
-#import <Foundation/Foundation.h>
+#import "OKCertificate.h"
 
-@interface Identity : NSObject
+#import <Security/Security.h>
+
+#import "OKKeychainItemSubclass.h"
+
+@implementation OKCertificate
+
+@dynamic certificateType;
+@dynamic certificateEncoding;
+@dynamic subjectName;
+@dynamic issuer;
+@dynamic serialNumber;
+@dynamic subjectKeyID;
+@dynamic publicKeyHash;
+
+- (CFTypeRef)classCode
 {
+   return kSecClassCertificate;
+}
+
+#pragma mark -
+#pragma mark Properties
+
+- (NSUInteger)certificateType
+{
+   NSNumber *certType = [self objectForKey:(id)kSecAttrCertificateType];
+   return [certType unsignedIntegerValue];
+}
+
+- (NSUInteger)certificateEncoding
+{
+   NSNumber *certEncoding = [self objectForKey:(id)kSecAttrCertificateEncoding];
+   return [certEncoding unsignedIntegerValue];
+}
+
+- (NSData *)subjectName
+{
+   return [self objectForKey:(id)kSecAttrSubject];
+}
+
+- (NSData *)serialNumber
+{
+   return [self objectForKey:(id)kSecAttrSerialNumber];
+}
+
+- (NSData *)subjectKeyID
+{
+   return [self objectForKey:(id)kSecAttrSubjectKeyID];
+}
+
+- (NSData *)publicKeyHash
+{
+   return [self objectForKey:(id)kSecAttrPublicKeyHash];
 }
 
 @end

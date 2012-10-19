@@ -1,5 +1,5 @@
 //
-//  KeychainItemSubclass.h
+//  OKIdentity.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -22,26 +22,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 //
+//  An identity is a certificate together with its associated private key.
+//  Because an identity is the combination of a private key and a certificate,
+//  this class shares attributes of both kSecClassKey and kSecClassCertificate.
 
-@interface KeychainItem(Subclass)
+#import <Foundation/Foundation.h>
 
-// Writes info to/reads info from the internal mutable dictionary
-- (id)objectForKey:(id)key;
-- (void)setObject:(id)object forKey:(id)key;
-
-
-// *** Subclass methods to implement: ***
-
-// Returns the kSecClass type for the current class. Subclasses MUST override
-// this method and return their corresponding code.
-- (CFTypeRef)classCode;
-
-- (void)resetKeychainItem;
-
-// If the subclass needs to do any more tweaking of its attributes before saving
-// to the Keychain (eg converting NSStrings to NSData), do it here.
-- (NSMutableDictionary *)dictionaryToSecItemFormat:(NSDictionary *)dictionaryToConvert;
-
-- (NSMutableDictionary *)secItemFormatToDictionary:(NSDictionary *)dictionaryToConvert;
+@interface OKIdentity : NSObject
+{
+}
 
 @end
