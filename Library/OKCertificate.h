@@ -1,5 +1,5 @@
 //
-//  Certificate.h
+//  OKCertificate.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -25,9 +25,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KeychainItem.h"
+#import "OKKeychainItem.h"
 
-@interface Certificate : KeychainItem
+@interface OKCertificate : OKKeychainItem
 {
 }
 

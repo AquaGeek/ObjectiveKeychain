@@ -1,5 +1,5 @@
 //
-//  Certificate.m
+//  OKKeychainItemSubclass.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,60 +23,25 @@
 //  THE SOFTWARE.
 //
 
-#import "Certificate.h"
+@interface OKKeychainItem(Subclass)
 
-#import <Security/Security.h>
+// Writes info to/reads info from the internal mutable dictionary
+- (id)objectForKey:(id)key;
+- (void)setObject:(id)object forKey:(id)key;
 
-#import "KeychainItemSubclass.h"
 
-@implementation Certificate
+// *** Subclass methods to implement: ***
 
-@dynamic certificateType;
-@dynamic certificateEncoding;
-@dynamic subjectName;
-@dynamic issuer;
-@dynamic serialNumber;
-@dynamic subjectKeyID;
-@dynamic publicKeyHash;
+// Returns the kSecClass type for the current class. Subclasses MUST override
+// this method and return their corresponding code.
+- (CFTypeRef)classCode;
 
-- (CFTypeRef)classCode
-{
-   return kSecClassCertificate;
-}
+- (void)resetKeychainItem;
 
-#pragma mark -
-#pragma mark Properties
+// If the subclass needs to do any more tweaking of its attributes before saving
+// to the Keychain (eg converting NSStrings to NSData), do it here.
+- (NSMutableDictionary *)dictionaryToSecItemFormat:(NSDictionary *)dictionaryToConvert;
 
-- (NSUInteger)certificateType
-{
-   NSNumber *certType = [self objectForKey:(id)kSecAttrCertificateType];
-   return [certType unsignedIntegerValue];
-}
-
-- (NSUInteger)certificateEncoding
-{
-   NSNumber *certEncoding = [self objectForKey:(id)kSecAttrCertificateEncoding];
-   return [certEncoding unsignedIntegerValue];
-}
-
-- (NSData *)subjectName
-{
-   return [self objectForKey:(id)kSecAttrSubject];
-}
-
-- (NSData *)serialNumber
-{
-   return [self objectForKey:(id)kSecAttrSerialNumber];
-}
-
-- (NSData *)subjectKeyID
-{
-   return [self objectForKey:(id)kSecAttrSubjectKeyID];
-}
-
-- (NSData *)publicKeyHash
-{
-   return [self objectForKey:(id)kSecAttrPublicKeyHash];
-}
+- (NSMutableDictionary *)secItemFormatToDictionary:(NSDictionary *)dictionaryToConvert;
 
 @end

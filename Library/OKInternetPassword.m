@@ -1,5 +1,5 @@
 //
-//  InternetPassword.m
+//  OKInternetPassword.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,13 +23,13 @@
 //  THE SOFTWARE.
 //
 
-#import "InternetPassword.h"
+#import "OKInternetPassword.h"
 
 #import <Security/Security.h>
 
-#import "KeychainItemSubclass.h"
+#import "OKKeychainItemSubclass.h"
 
-@interface InternetPassword(PrivateMethods)
+@interface OKInternetPassword(PrivateMethods)
 
 @property (nonatomic, readonly) NSArray *protocols;
 @property (nonatomic, readonly) NSArray *authenticationTypes;
@@ -39,7 +39,7 @@
 
 #pragma mark -
 
-@implementation InternetPassword
+@implementation OKInternetPassword
 
 @dynamic securityDomain;
 @dynamic server;
@@ -127,7 +127,7 @@
 
 #pragma mark -
 
-@implementation InternetPassword(PrivateMethods)
+@implementation OKInternetPassword(PrivateMethods)
 
 @dynamic protocols;
 @dynamic authenticationTypes;

@@ -1,5 +1,5 @@
 //
-//  GenericPassword.h
+//  OKIdentity.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,37 +23,8 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "OKIdentity.h"
 
-#import "Password.h"
-
-@interface GenericPassword : Password
-{
-}
-
-/*
- All of these are handled by our superclass:
-   kSecAttrAccessGroup
-   kSecAttrCreationDate
-   kSecAttrModificationDate
-   kSecAttrDescription
-   kSecAttrComment
-   kSecAttrCreator
-   kSecAttrType
-   kSecAttrLabel
-   kSecAttrIsInvisible
-   kSecAttrIsNegative
-   kSecAttrAccount
- 
- We handle these:
-   kSecAttrService
-   kSecAttrGeneric
-*/
-
-// Represents the service associated with this item
-@property (nonatomic, copy) NSString *service;
-
-// Contains a user-defined attribute
-@property (nonatomic, copy) NSData *genericData;
+@implementation OKIdentity
 
 @end

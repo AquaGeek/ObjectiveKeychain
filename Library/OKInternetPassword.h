@@ -1,5 +1,5 @@
 //
-//  InternetPassword.h
+//  OKInternetPassword.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -25,7 +25,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Password.h"
+#import "OKPassword.h"
 
 typedef enum
 {
@@ -74,7 +74,7 @@ typedef enum
    kAuthenticationTypeDefault
 } AuthenticationType;
 
-@interface InternetPassword : Password
+@interface OKInternetPassword : OKPassword
 {
 }
 
