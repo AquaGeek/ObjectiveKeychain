@@ -2,7 +2,7 @@
 //  OKGenericPassword.m
 //  ObjectiveKeychain
 //
-//  Copyright (c) 2010 Tyler Stromberg
+//  Copyright (c) 2010-2012 Tyler Stromberg
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -31,36 +31,32 @@
 
 @implementation OKGenericPassword
 
-@dynamic service;
-@dynamic genericData;
-
 - (CFTypeRef)classCode
 {
-   return kSecClassGenericPassword;
+    return kSecClassGenericPassword;
 }
 
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (NSString *)service
 {
-   return [self objectForKey:(id)kSecAttrService];
+    return [self objectForKey:(id)kSecAttrService];
 }
 
 - (void)setService:(NSString *)newService
 {
-   [self setObject:newService forKey:(id)kSecAttrService];
+    [self setObject:newService forKey:(id)kSecAttrService];
 }
 
 - (NSData *)genericData
 {
-   return [self objectForKey:(id)kSecAttrGeneric];
+    return [self objectForKey:(id)kSecAttrGeneric];
 }
 
 - (void)setGenericData:(NSData *)newGenericData
 {
-   [self setObject:newGenericData forKey:(id)kSecAttrGeneric];
+    [self setObject:newGenericData forKey:(id)kSecAttrGeneric];
 }
 
 @end

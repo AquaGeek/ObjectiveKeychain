@@ -2,7 +2,7 @@
 //  OKCertificate.m
 //  ObjectiveKeychain
 //
-//  Copyright (c) 2010 Tyler Stromberg
+//  Copyright (c) 2010-2012 Tyler Stromberg
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -31,52 +31,44 @@
 
 @implementation OKCertificate
 
-@dynamic certificateType;
-@dynamic certificateEncoding;
-@dynamic subjectName;
-@dynamic issuer;
-@dynamic serialNumber;
-@dynamic subjectKeyID;
-@dynamic publicKeyHash;
-
 - (CFTypeRef)classCode
 {
-   return kSecClassCertificate;
+    return kSecClassCertificate;
 }
 
-#pragma mark -
-#pragma mark Properties
+
+#pragma mark - Properties
 
 - (NSUInteger)certificateType
 {
-   NSNumber *certType = [self objectForKey:(id)kSecAttrCertificateType];
-   return [certType unsignedIntegerValue];
+    NSNumber *certType = [self objectForKey:(id)kSecAttrCertificateType];
+    return [certType unsignedIntegerValue];
 }
 
 - (NSUInteger)certificateEncoding
 {
-   NSNumber *certEncoding = [self objectForKey:(id)kSecAttrCertificateEncoding];
-   return [certEncoding unsignedIntegerValue];
+    NSNumber *certEncoding = [self objectForKey:(id)kSecAttrCertificateEncoding];
+    return [certEncoding unsignedIntegerValue];
 }
 
 - (NSData *)subjectName
 {
-   return [self objectForKey:(id)kSecAttrSubject];
+    return [self objectForKey:(id)kSecAttrSubject];
 }
 
 - (NSData *)serialNumber
 {
-   return [self objectForKey:(id)kSecAttrSerialNumber];
+    return [self objectForKey:(id)kSecAttrSerialNumber];
 }
 
 - (NSData *)subjectKeyID
 {
-   return [self objectForKey:(id)kSecAttrSubjectKeyID];
+    return [self objectForKey:(id)kSecAttrSubjectKeyID];
 }
 
 - (NSData *)publicKeyHash
 {
-   return [self objectForKey:(id)kSecAttrPublicKeyHash];
+    return [self objectForKey:(id)kSecAttrPublicKeyHash];
 }
 
 @end
