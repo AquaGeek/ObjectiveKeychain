@@ -154,7 +154,10 @@
    {
       keyTypes = [[NSArray alloc] initWithObjects:
                   (id)kSecAttrKeyTypeRSA,
-                  (id)kSecAttrKeyTypeEC, nil];
+#if !TARGET_IPHONE_SIMULATOR
+                  (id)kSecAttrKeyTypeEC,
+#endif
+                  nil];
    }
    
    return keyTypes;
