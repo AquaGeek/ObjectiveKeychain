@@ -263,8 +263,7 @@
 - (CFTypeRef)classCode
 {
     [NSException raise:@"OKSubclassMethodImplementationMissingException"
-                format:@"Abstract superclass 'OKKeychainItem' does not implement 'classCode.'" \
-     "It must be implemented by the subclass."];
+                format:@"Abstract superclass 'OKKeychainItem' does not implement 'classCode.' It must be implemented by the subclass."];
     
     return nil;
 }
