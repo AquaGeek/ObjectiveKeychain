@@ -1,5 +1,5 @@
 //
-//  Certificate.m
+//  OKCertificate.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,13 +23,13 @@
 //  THE SOFTWARE.
 //
 
-#import "Certificate.h"
+#import "OKCertificate.h"
 
 #import <Security/Security.h>
 
-#import "KeychainItemSubclass.h"
+#import "OKKeychainItemSubclass.h"
 
-@implementation Certificate
+@implementation OKCertificate
 
 @dynamic certificateType;
 @dynamic certificateEncoding;

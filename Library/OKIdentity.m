@@ -1,5 +1,5 @@
 //
-//  Identity.m
+//  OKIdentity.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,8 +23,8 @@
 //  THE SOFTWARE.
 //
 
-#import "Identity.h"
+#import "OKIdentity.h"
 
-@implementation Identity
+@implementation OKIdentity
 
 @end

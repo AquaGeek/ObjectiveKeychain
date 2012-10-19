@@ -1,5 +1,5 @@
 //
-//  Password.m
+//  OKPassword.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,13 +23,13 @@
 //  THE SOFTWARE.
 //
 
-#import "Password.h"
+#import "OKPassword.h"
 
 #import <Security/Security.h>
 
-#import "KeychainItemSubclass.h"
+#import "OKKeychainItemSubclass.h"
 
-@implementation Password
+@implementation OKPassword
 
 @dynamic creationDate;
 @dynamic modificationDate;

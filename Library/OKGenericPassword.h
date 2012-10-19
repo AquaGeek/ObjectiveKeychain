@@ -1,5 +1,5 @@
 //
-//  GenericPassword.h
+//  OKGenericPassword.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -25,9 +25,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Password.h"
+#import "OKPassword.h"
 
-@interface GenericPassword : Password
+@interface OKGenericPassword : OKPassword
 {
 }
 

@@ -1,5 +1,5 @@
 //
-//  Password.h
+//  OKPassword.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -26,9 +26,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "KeychainItem.h"
+#import "OKKeychainItem.h"
 
-@interface Password : KeychainItem
+@interface OKPassword : OKKeychainItem
 {
 }
 

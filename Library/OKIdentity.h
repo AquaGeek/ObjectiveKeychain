@@ -1,5 +1,5 @@
 //
-//  Identity.h
+//  OKIdentity.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -28,7 +28,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Identity : NSObject
+@interface OKIdentity : NSObject
 {
 }
 

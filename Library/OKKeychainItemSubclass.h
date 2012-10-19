@@ -1,5 +1,5 @@
 //
-//  KeychainItemSubclass.h
+//  OKKeychainItemSubclass.h
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-@interface KeychainItem(Subclass)
+@interface OKKeychainItem(Subclass)
 
 // Writes info to/reads info from the internal mutable dictionary
 - (id)objectForKey:(id)key;

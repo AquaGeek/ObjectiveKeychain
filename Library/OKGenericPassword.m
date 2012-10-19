@@ -1,5 +1,5 @@
 //
-//  GenericPassword.m
+//  OKGenericPassword.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,13 +23,13 @@
 //  THE SOFTWARE.
 //
 
-#import "GenericPassword.h"
+#import "OKGenericPassword.h"
 
 #import <Security/Security.h>
 
-#import "KeychainItemSubclass.h"
+#import "OKKeychainItemSubclass.h"
 
-@implementation GenericPassword
+@implementation OKGenericPassword
 
 @dynamic service;
 @dynamic genericData;

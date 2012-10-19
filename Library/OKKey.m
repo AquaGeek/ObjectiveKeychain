@@ -1,5 +1,5 @@
 //
-//  Key.m
+//  OKKey.m
 //  ObjectiveKeychain
 //
 //  Copyright (c) 2010 Tyler Stromberg
@@ -23,13 +23,13 @@
 //  THE SOFTWARE.
 //
 
-#import "Key.h"
+#import "OKKey.h"
 
 #import <Security/Security.h>
 
-#import "KeychainItemSubclass.h"
+#import "OKKeychainItemSubclass.h"
 
-@interface Key (PrivateMethods)
+@interface OKKey (PrivateMethods)
 
 @property (nonatomic, readonly) NSArray *keyClasses;
 @property (nonatomic, readonly) NSArray *keyTypes;
@@ -39,7 +39,7 @@
 
 #pragma mark -
 
-@implementation Key
+@implementation OKKey
 
 @dynamic keyClass;
 @dynamic applicationLabel;
@@ -126,7 +126,7 @@
 
 #pragma mark -
 
-@implementation Key(PrivateMethods)
+@implementation OKKey(PrivateMethods)
 
 @dynamic keyClasses;
 @dynamic keyTypes;
