@@ -8,42 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		2F065C32126AD300007C1EB7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F065C31126AD300007C1EB7 /* Security.framework */; };
-		2F148B24126ECBDF00D8133F /* KeychainItemSubclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F148B23126ECBDF00D8133F /* KeychainItemSubclass.h */; };
-		2F8601431238A08D00F46FC1 /* GenericPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601411238A08D00F46FC1 /* GenericPassword.h */; };
-		2F8601441238A08D00F46FC1 /* GenericPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601421238A08D00F46FC1 /* GenericPassword.m */; };
-		2F8601471238A09300F46FC1 /* InternetPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601451238A09300F46FC1 /* InternetPassword.h */; };
-		2F8601481238A09300F46FC1 /* InternetPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601461238A09300F46FC1 /* InternetPassword.m */; };
-		2F86014B1238A09E00F46FC1 /* Certificate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601491238A09E00F46FC1 /* Certificate.h */; };
-		2F86014C1238A09E00F46FC1 /* Certificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86014A1238A09E00F46FC1 /* Certificate.m */; };
-		2F86014F1238A0A400F46FC1 /* Key.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F86014D1238A0A400F46FC1 /* Key.h */; };
-		2F8601501238A0A400F46FC1 /* Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86014E1238A0A400F46FC1 /* Key.m */; };
-		2F8601531238A0AF00F46FC1 /* Identity.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601511238A0AF00F46FC1 /* Identity.h */; };
-		2F8601541238A0AF00F46FC1 /* Identity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601521238A0AF00F46FC1 /* Identity.m */; };
-		2F8601571238A16700F46FC1 /* KeychainItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601551238A16700F46FC1 /* KeychainItem.h */; };
-		2F8601581238A16700F46FC1 /* KeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601561238A16700F46FC1 /* KeychainItem.m */; };
-		2F86015B1238A1A200F46FC1 /* Password.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601591238A1A200F46FC1 /* Password.h */; };
-		2F86015C1238A1A200F46FC1 /* Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86015A1238A1A200F46FC1 /* Password.m */; };
+		2F148B24126ECBDF00D8133F /* OKKeychainItemSubclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F148B23126ECBDF00D8133F /* OKKeychainItemSubclass.h */; };
+		2F8601431238A08D00F46FC1 /* OKGenericPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601411238A08D00F46FC1 /* OKGenericPassword.h */; };
+		2F8601441238A08D00F46FC1 /* OKGenericPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601421238A08D00F46FC1 /* OKGenericPassword.m */; };
+		2F8601471238A09300F46FC1 /* OKInternetPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601451238A09300F46FC1 /* OKInternetPassword.h */; };
+		2F8601481238A09300F46FC1 /* OKInternetPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601461238A09300F46FC1 /* OKInternetPassword.m */; };
+		2F86014B1238A09E00F46FC1 /* OKCertificate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601491238A09E00F46FC1 /* OKCertificate.h */; };
+		2F86014C1238A09E00F46FC1 /* OKCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86014A1238A09E00F46FC1 /* OKCertificate.m */; };
+		2F86014F1238A0A400F46FC1 /* OKKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F86014D1238A0A400F46FC1 /* OKKey.h */; };
+		2F8601501238A0A400F46FC1 /* OKKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86014E1238A0A400F46FC1 /* OKKey.m */; };
+		2F8601531238A0AF00F46FC1 /* OKIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601511238A0AF00F46FC1 /* OKIdentity.h */; };
+		2F8601541238A0AF00F46FC1 /* OKIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601521238A0AF00F46FC1 /* OKIdentity.m */; };
+		2F8601571238A16700F46FC1 /* OKKeychainItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601551238A16700F46FC1 /* OKKeychainItem.h */; };
+		2F8601581238A16700F46FC1 /* OKKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8601561238A16700F46FC1 /* OKKeychainItem.m */; };
+		2F86015B1238A1A200F46FC1 /* OKPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F8601591238A1A200F46FC1 /* OKPassword.h */; };
+		2F86015C1238A1A200F46FC1 /* OKPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F86015A1238A1A200F46FC1 /* OKPassword.m */; };
 		AA747D9F0F9514B9006C5449 /* ObjectiveKeychain_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ObjectiveKeychain_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F065C31126AD300007C1EB7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		2F148B23126ECBDF00D8133F /* KeychainItemSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemSubclass.h; sourceTree = "<group>"; };
-		2F8601411238A08D00F46FC1 /* GenericPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericPassword.h; sourceTree = "<group>"; };
-		2F8601421238A08D00F46FC1 /* GenericPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericPassword.m; sourceTree = "<group>"; };
-		2F8601451238A09300F46FC1 /* InternetPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetPassword.h; sourceTree = "<group>"; };
-		2F8601461238A09300F46FC1 /* InternetPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetPassword.m; sourceTree = "<group>"; };
-		2F8601491238A09E00F46FC1 /* Certificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Certificate.h; sourceTree = "<group>"; };
-		2F86014A1238A09E00F46FC1 /* Certificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Certificate.m; sourceTree = "<group>"; };
-		2F86014D1238A0A400F46FC1 /* Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
-		2F86014E1238A0A400F46FC1 /* Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Key.m; sourceTree = "<group>"; };
-		2F8601511238A0AF00F46FC1 /* Identity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Identity.h; sourceTree = "<group>"; };
-		2F8601521238A0AF00F46FC1 /* Identity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Identity.m; sourceTree = "<group>"; };
-		2F8601551238A16700F46FC1 /* KeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItem.h; sourceTree = "<group>"; };
-		2F8601561238A16700F46FC1 /* KeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItem.m; sourceTree = "<group>"; };
-		2F8601591238A1A200F46FC1 /* Password.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Password.h; sourceTree = "<group>"; };
-		2F86015A1238A1A200F46FC1 /* Password.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Password.m; sourceTree = "<group>"; };
+		2F148B23126ECBDF00D8133F /* OKKeychainItemSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKeychainItemSubclass.h; sourceTree = "<group>"; };
+		2F8601411238A08D00F46FC1 /* OKGenericPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKGenericPassword.h; sourceTree = "<group>"; };
+		2F8601421238A08D00F46FC1 /* OKGenericPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKGenericPassword.m; sourceTree = "<group>"; };
+		2F8601451238A09300F46FC1 /* OKInternetPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKInternetPassword.h; sourceTree = "<group>"; };
+		2F8601461238A09300F46FC1 /* OKInternetPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKInternetPassword.m; sourceTree = "<group>"; };
+		2F8601491238A09E00F46FC1 /* OKCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKCertificate.h; sourceTree = "<group>"; };
+		2F86014A1238A09E00F46FC1 /* OKCertificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKCertificate.m; sourceTree = "<group>"; };
+		2F86014D1238A0A400F46FC1 /* OKKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKey.h; sourceTree = "<group>"; };
+		2F86014E1238A0A400F46FC1 /* OKKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKKey.m; sourceTree = "<group>"; };
+		2F8601511238A0AF00F46FC1 /* OKIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKIdentity.h; sourceTree = "<group>"; };
+		2F8601521238A0AF00F46FC1 /* OKIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKIdentity.m; sourceTree = "<group>"; };
+		2F8601551238A16700F46FC1 /* OKKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKKeychainItem.h; sourceTree = "<group>"; };
+		2F8601561238A16700F46FC1 /* OKKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKKeychainItem.m; sourceTree = "<group>"; };
+		2F8601591238A1A200F46FC1 /* OKPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKPassword.h; sourceTree = "<group>"; };
+		2F86015A1238A1A200F46FC1 /* OKPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKPassword.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* ObjectiveKeychain_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveKeychain_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libObjectiveKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,21 +93,21 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2F8601551238A16700F46FC1 /* KeychainItem.h */,
-				2F8601561238A16700F46FC1 /* KeychainItem.m */,
-				2F148B23126ECBDF00D8133F /* KeychainItemSubclass.h */,
-				2F8601591238A1A200F46FC1 /* Password.h */,
-				2F86015A1238A1A200F46FC1 /* Password.m */,
-				2F8601411238A08D00F46FC1 /* GenericPassword.h */,
-				2F8601421238A08D00F46FC1 /* GenericPassword.m */,
-				2F8601451238A09300F46FC1 /* InternetPassword.h */,
-				2F8601461238A09300F46FC1 /* InternetPassword.m */,
-				2F8601491238A09E00F46FC1 /* Certificate.h */,
-				2F86014A1238A09E00F46FC1 /* Certificate.m */,
-				2F86014D1238A0A400F46FC1 /* Key.h */,
-				2F86014E1238A0A400F46FC1 /* Key.m */,
-				2F8601511238A0AF00F46FC1 /* Identity.h */,
-				2F8601521238A0AF00F46FC1 /* Identity.m */,
+				2F8601551238A16700F46FC1 /* OKKeychainItem.h */,
+				2F8601561238A16700F46FC1 /* OKKeychainItem.m */,
+				2F148B23126ECBDF00D8133F /* OKKeychainItemSubclass.h */,
+				2F8601591238A1A200F46FC1 /* OKPassword.h */,
+				2F86015A1238A1A200F46FC1 /* OKPassword.m */,
+				2F8601411238A08D00F46FC1 /* OKGenericPassword.h */,
+				2F8601421238A08D00F46FC1 /* OKGenericPassword.m */,
+				2F8601451238A09300F46FC1 /* OKInternetPassword.h */,
+				2F8601461238A09300F46FC1 /* OKInternetPassword.m */,
+				2F8601491238A09E00F46FC1 /* OKCertificate.h */,
+				2F86014A1238A09E00F46FC1 /* OKCertificate.m */,
+				2F86014D1238A0A400F46FC1 /* OKKey.h */,
+				2F86014E1238A0A400F46FC1 /* OKKey.m */,
+				2F8601511238A0AF00F46FC1 /* OKIdentity.h */,
+				2F8601521238A0AF00F46FC1 /* OKIdentity.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -128,14 +128,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* ObjectiveKeychain_Prefix.pch in Headers */,
-				2F8601431238A08D00F46FC1 /* GenericPassword.h in Headers */,
-				2F8601471238A09300F46FC1 /* InternetPassword.h in Headers */,
-				2F86014B1238A09E00F46FC1 /* Certificate.h in Headers */,
-				2F86014F1238A0A400F46FC1 /* Key.h in Headers */,
-				2F8601531238A0AF00F46FC1 /* Identity.h in Headers */,
-				2F8601571238A16700F46FC1 /* KeychainItem.h in Headers */,
-				2F86015B1238A1A200F46FC1 /* Password.h in Headers */,
-				2F148B24126ECBDF00D8133F /* KeychainItemSubclass.h in Headers */,
+				2F8601431238A08D00F46FC1 /* OKGenericPassword.h in Headers */,
+				2F8601471238A09300F46FC1 /* OKInternetPassword.h in Headers */,
+				2F86014B1238A09E00F46FC1 /* OKCertificate.h in Headers */,
+				2F86014F1238A0A400F46FC1 /* OKKey.h in Headers */,
+				2F8601531238A0AF00F46FC1 /* OKIdentity.h in Headers */,
+				2F8601571238A16700F46FC1 /* OKKeychainItem.h in Headers */,
+				2F86015B1238A1A200F46FC1 /* OKPassword.h in Headers */,
+				2F148B24126ECBDF00D8133F /* OKKeychainItemSubclass.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,13 +189,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F8601441238A08D00F46FC1 /* GenericPassword.m in Sources */,
-				2F8601481238A09300F46FC1 /* InternetPassword.m in Sources */,
-				2F86014C1238A09E00F46FC1 /* Certificate.m in Sources */,
-				2F8601501238A0A400F46FC1 /* Key.m in Sources */,
-				2F8601541238A0AF00F46FC1 /* Identity.m in Sources */,
-				2F8601581238A16700F46FC1 /* KeychainItem.m in Sources */,
-				2F86015C1238A1A200F46FC1 /* Password.m in Sources */,
+				2F8601441238A08D00F46FC1 /* OKGenericPassword.m in Sources */,
+				2F8601481238A09300F46FC1 /* OKInternetPassword.m in Sources */,
+				2F86014C1238A09E00F46FC1 /* OKCertificate.m in Sources */,
+				2F8601501238A0A400F46FC1 /* OKKey.m in Sources */,
+				2F8601541238A0AF00F46FC1 /* OKIdentity.m in Sources */,
+				2F8601581238A16700F46FC1 /* OKKeychainItem.m in Sources */,
+				2F86015C1238A1A200F46FC1 /* OKPassword.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
