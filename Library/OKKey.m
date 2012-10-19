@@ -2,7 +2,7 @@
 //  OKKey.m
 //  ObjectiveKeychain
 //
-//  Copyright (c) 2010 Tyler Stromberg
+//  Copyright (c) 2010-2012 Tyler Stromberg
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -41,13 +41,6 @@
 
 @implementation OKKey
 
-@dynamic keyClass;
-@dynamic applicationLabel;
-@dynamic permanent;
-@dynamic tag;
-@dynamic keyType;
-@dynamic keySizeInBits;
-@dynamic effectiveKeySize;
 @dynamic canEncrypt;
 @dynamic canDecrypt;
 @dynamic canDerive;
@@ -58,67 +51,66 @@
 
 - (CFTypeRef)classCode
 {
-   return kSecClassKey;
+    return kSecClassKey;
 }
 
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
-- (KeyClass)keyClass
+- (OKKeyClass)keyClass
 {
-   CFTypeRef keyClass = [self objectForKey:(id)kSecAttrKeyClass];
-   return [self.keyClasses indexOfObject:(id)keyClass];
+    CFTypeRef keyClass = [self objectForKey:(id)kSecAttrKeyClass];
+    return [self.keyClasses indexOfObject:(id)keyClass];
 }
 
 - (NSString *)applicationLabel
 {
-   return [self objectForKey:(id)kSecAttrApplicationLabel];
+    return [self objectForKey:(id)kSecAttrApplicationLabel];
 }
 
 - (void)setApplicationLabel:(NSString *)newLabel
 {
-   [self setObject:newLabel forKey:(id)kSecAttrApplicationLabel];
+    [self setObject:newLabel forKey:(id)kSecAttrApplicationLabel];
 }
 
 - (BOOL)isPermanent
 {
-   CFBooleanRef value = (CFBooleanRef)[self objectForKey:(id)kSecAttrIsPermanent];
-   return CFBooleanGetValue(value);
+    CFBooleanRef value = (CFBooleanRef)[self objectForKey:(id)kSecAttrIsPermanent];
+    return CFBooleanGetValue(value);
 }
 
 - (void)setPermanent:(BOOL)isPermanent
 {
-   CFBooleanRef newValue = isPermanent ? kCFBooleanTrue : kCFBooleanFalse;
-   [self setObject:(id)newValue forKey:(id)kSecAttrIsPermanent];
+    CFBooleanRef newValue = isPermanent ? kCFBooleanTrue : kCFBooleanFalse;
+    [self setObject:(id)newValue forKey:(id)kSecAttrIsPermanent];
 }
 
 - (NSData *)tag
 {
-   return [self objectForKey:(id)kSecAttrApplicationTag];
+    return [self objectForKey:(id)kSecAttrApplicationTag];
 }
 
 - (void)setTag:(NSData *)newTagData
 {
-   [self setObject:newTagData forKey:(id)kSecAttrApplicationTag];
+    [self setObject:newTagData forKey:(id)kSecAttrApplicationTag];
 }
 
-- (KeyType)keyType
+- (OKKeyType)keyType
 {
-   CFTypeRef keyType = [self objectForKey:(id)kSecAttrKeyType];
-   return [self.keyTypes indexOfObject:(id)keyType];
+    CFTypeRef keyType = [self objectForKey:(id)kSecAttrKeyType];
+    return [self.keyTypes indexOfObject:(id)keyType];
 }
 
 - (NSUInteger)keySizeInBits
 {
-   NSNumber *keySize = [self objectForKey:(id)kSecAttrKeySizeInBits];
-   return [keySize unsignedIntegerValue];
+    NSNumber *keySize = [self objectForKey:(id)kSecAttrKeySizeInBits];
+    return [keySize unsignedIntegerValue];
 }
 
 - (NSUInteger)effectiveKeySize
 {
-   NSNumber *keySize = [self objectForKey:(id)kSecAttrEffectiveKeySize];
-   return [keySize unsignedIntegerValue];
+    NSNumber *keySize = [self objectForKey:(id)kSecAttrEffectiveKeySize];
+    return [keySize unsignedIntegerValue];
 }
 
 @end
@@ -128,36 +120,33 @@
 
 @implementation OKKey(PrivateMethods)
 
-@dynamic keyClasses;
-@dynamic keyTypes;
-
 - (NSArray *)keyClasses
 {
-   static NSArray *keyClasses = nil;
-   
-   if (keyClasses == nil)
-   {
-      keyClasses = [[NSArray alloc] initWithObjects:
-                    (id)kSecAttrKeyClassPublic,
-                    (id)kSecAttrKeyClassPrivate,
-                    (id)kSecAttrKeyClassSymmetric, nil];
-   }
-   
-   return keyClasses;
+    static NSArray *keyClasses = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        keyClasses = [[NSArray alloc] initWithObjects:
+                      (id)kSecAttrKeyClassPublic,
+                      (id)kSecAttrKeyClassPrivate,
+                      (id)kSecAttrKeyClassSymmetric, nil];
+    });
+    
+    return keyClasses;
 }
 
 - (NSArray *)keyTypes
 {
-   static NSArray *keyTypes = nil;
-   
-   if (keyTypes == nil)
-   {
-      keyTypes = [[NSArray alloc] initWithObjects:
-                  (id)kSecAttrKeyTypeRSA,
-                  (id)kSecAttrKeyTypeEC, nil];
-   }
-   
-   return keyTypes;
+    static NSArray *keyTypes = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        keyTypes = [[NSArray alloc] initWithObjects:
+                    (id)kSecAttrKeyTypeRSA,
+                    (id)kSecAttrKeyTypeEC, nil];
+    });
+    
+    return keyTypes;
 }
 
 @end

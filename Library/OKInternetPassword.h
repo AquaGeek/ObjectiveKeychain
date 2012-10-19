@@ -2,7 +2,7 @@
 //  OKInternetPassword.h
 //  ObjectiveKeychain
 //
-//  Copyright (c) 2010 Tyler Stromberg
+//  Copyright (c) 2010-2012 Tyler Stromberg
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -29,54 +29,52 @@
 
 typedef enum
 {
-   kNetworkProtocolFTP = 0,
-   kNetworkProtocolFTPAccount,
-   kNetworkProtocolHTTP,
-   kNetworkProtocolIRC,
-   kNetworkProtocolNNTP,
-   kNetworkProtocolPOP3,
-   kNetworkProtocolSMTP,
-   kNetworkProtocolSOCKS,
-   kNetworkProtocolIMAP,
-   kNetworkProtocolLDAP,
-   kNetworkProtocolAppleTalk,
-   kNetworkProtocolAFP,
-   kNetworkProtocolTelnet,
-   kNetworkProtocolSSH,
-   kNetworkProtocolFTPS,
-   kNetworkProtocolHTTPS,
-   kNetworkProtocolHTTPProxy,
-   kNetworkProtocolHTTPSProxy,
-   kNetworkProtocolFTPProxy,
-   kNetworkProtocolSMB,
-   kNetworkProtocolRTSP,
-   kNetworkProtocolRTSPProxy,
-   kNetworkProtocolDAAP,
-   kNetworkProtocolEPPC,
-   kNetworkProtocolIPP,
-   kNetworkProtocolNNTPS,
-   kNetworkProtocolLDAPS,
-   kNetworkProtocolTelnetS,
-   kNetworkProtocolIMAPS,
-   kNetworkProtocolIRCS,
-   kNetworkProtocolPOP3S
-} NetworkProtocol;
+   kOKNetworkProtocolFTP = 0,
+   kOKNetworkProtocolFTPAccount,
+   kOKNetworkProtocolHTTP,
+   kOKNetworkProtocolIRC,
+   kOKNetworkProtocolNNTP,
+   kOKNetworkProtocolPOP3,
+   kOKNetworkProtocolSMTP,
+   kOKNetworkProtocolSOCKS,
+   kOKNetworkProtocolIMAP,
+   kOKNetworkProtocolLDAP,
+   kOKNetworkProtocolAppleTalk,
+   kOKNetworkProtocolAFP,
+   kOKNetworkProtocolTelnet,
+   kOKNetworkProtocolSSH,
+   kOKNetworkProtocolFTPS,
+   kOKNetworkProtocolHTTPS,
+   kOKNetworkProtocolHTTPProxy,
+   kOKNetworkProtocolHTTPSProxy,
+   kOKNetworkProtocolFTPProxy,
+   kOKNetworkProtocolSMB,
+   kOKNetworkProtocolRTSP,
+   kOKNetworkProtocolRTSPProxy,
+   kOKNetworkProtocolDAAP,
+   kOKNetworkProtocolEPPC,
+   kOKNetworkProtocolIPP,
+   kOKNetworkProtocolNNTPS,
+   kOKNetworkProtocolLDAPS,
+   kOKNetworkProtocolTelnetS,
+   kOKNetworkProtocolIMAPS,
+   kOKNetworkProtocolIRCS,
+   kOKNetworkProtocolPOP3S
+} OKNetworkProtocol;
 
 typedef enum
 {
-   kAuthenticationTypeNTLM = 0,
-   kAuthenticationTypeMSN,
-   kAuthenticationTypeDPA,
-   kAuthenticationTypeRPA,
-   kAuthenticationTypeHTTPBasic,
-   kAuthenticationTypeHTTPDigest,
-   kAuthenticationTypeHTMLForm,
-   kAuthenticationTypeDefault
-} AuthenticationType;
+   kOKAuthenticationTypeNTLM = 0,
+   kOKAuthenticationTypeMSN,
+   kOKAuthenticationTypeDPA,
+   kOKAuthenticationTypeRPA,
+   kOKAuthenticationTypeHTTPBasic,
+   kOKAuthenticationTypeHTTPDigest,
+   kOKAuthenticationTypeHTMLForm,
+   kOKAuthenticationTypeDefault
+} OKAuthenticationType;
 
 @interface OKInternetPassword : OKPassword
-{
-}
 
 /*
  All of these attributes are handled by our superclass:
@@ -108,10 +106,10 @@ typedef enum
 @property (nonatomic, copy) NSString *server;
 
 // Denotes the protocol for this item
-@property (nonatomic, assign) NetworkProtocol protocol;
+@property (nonatomic, assign) OKNetworkProtocol protocol;
 
 // Denotes the authentication scheme for this item
-@property (nonatomic, assign) AuthenticationType authenticationType;
+@property (nonatomic, assign) OKAuthenticationType authenticationType;
 
 // Represents an Internet port number
 @property (nonatomic, assign) NSUInteger port;
