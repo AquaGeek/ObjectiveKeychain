@@ -28,8 +28,6 @@
 #import "OKKeychainItem.h"
 
 @interface OKCertificate : OKKeychainItem
-{
-}
 
 /*
  These are handled by our superclass:

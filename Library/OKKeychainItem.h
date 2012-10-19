@@ -26,12 +26,6 @@
 #import <Foundation/Foundation.h>
 
 @interface OKKeychainItem : NSObject
-{
-   NSMutableDictionary *mKeychainItemData;
-   NSMutableDictionary *mItemQuery;
-   
-   BOOL mDirty;
-}
 
 // Indicates which access group an item is in. Access groups can be used to share
 // keychain items among two or more applications. For applications to share a

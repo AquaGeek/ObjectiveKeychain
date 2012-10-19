@@ -31,21 +31,6 @@
 
 @implementation OKPassword
 
-@dynamic creationDate;
-@dynamic modificationDate;
-
-@dynamic userDescription;
-@dynamic comment;
-@dynamic creator;
-@dynamic type;
-@dynamic invisible;
-@dynamic negative;
-@dynamic account;
-@dynamic password;
-
-
-#pragma mark -
-
 - (void)resetKeychainItem
 {
    [super resetKeychainItem];
@@ -88,8 +73,7 @@
 }
 
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (NSDate *)creationDate
 {

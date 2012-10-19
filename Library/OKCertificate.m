@@ -31,21 +31,13 @@
 
 @implementation OKCertificate
 
-@dynamic certificateType;
-@dynamic certificateEncoding;
-@dynamic subjectName;
-@dynamic issuer;
-@dynamic serialNumber;
-@dynamic subjectKeyID;
-@dynamic publicKeyHash;
-
 - (CFTypeRef)classCode
 {
    return kSecClassCertificate;
 }
 
-#pragma mark -
-#pragma mark Properties
+
+#pragma mark - Properties
 
 - (NSUInteger)certificateType
 {

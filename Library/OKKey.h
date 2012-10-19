@@ -29,20 +29,18 @@
 
 typedef enum
 {
-   kKeyClassPublic = 0,
-   kKeyClassPrivate,
-   kKeyClassSymmetric
-} KeyClass;
+   kOKKeyClassPublic = 0,
+   kOKKeyClassPrivate,
+   kOKKeyClassSymmetric
+} OKKeyClass;
 
 typedef enum
 {
-   kKeyTypeRSA = 0,
-   kKeyTypeEC
-} KeyType;
+   kOKKeyTypeRSA = 0,
+   kOKKeyTypeEC
+} OKKeyType;
 
 @interface OKKey : OKKeychainItem
-{
-}
 
 /*
  Our superclass handles these:
@@ -67,7 +65,7 @@ typedef enum
 */
 
 // Specifies the type of cryptographic key
-@property (nonatomic, readonly) KeyClass keyClass;
+@property (nonatomic, readonly) OKKeyClass keyClass;
 
 // Contains a label for this item. This attribute is different from the 'label'
 // attribute, which is intended to be human-readable. This attribute is used to
@@ -83,7 +81,7 @@ typedef enum
 
 // Indicates the algorithm associated with this cryptographic key (see the CSSM_ALGORITHMS
 // enumeration in cssmtype.h and “Key Type Value”).
-@property (nonatomic, readonly) KeyType keyType;
+@property (nonatomic, readonly) OKKeyType keyType;
 
 // Indicates the total number of bits in this cryptographic key. Compare with effectiveKeySize.
 @property (nonatomic, readonly) NSUInteger keySizeInBits;

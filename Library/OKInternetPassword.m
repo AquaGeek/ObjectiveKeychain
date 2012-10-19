@@ -41,21 +41,13 @@
 
 @implementation OKInternetPassword
 
-@dynamic securityDomain;
-@dynamic server;
-@dynamic protocol;
-@dynamic authenticationType;
-@dynamic port;
-@dynamic path;
-
 - (CFTypeRef)classCode
 {
    return kSecClassInternetPassword;
 }
 
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (NSString *)securityDomain
 {
@@ -77,25 +69,25 @@
    [self setObject:newServer forKey:(id)kSecAttrServer];
 }
 
-- (NetworkProtocol)protocol
+- (OKNetworkProtocol)protocol
 {
    CFTypeRef protocolValue = [self objectForKey:(id)kSecAttrProtocol];
    return [self.protocols indexOfObject:(id)protocolValue];
 }
 
-- (void)setProtocol:(NetworkProtocol)newProtocol
+- (void)setProtocol:(OKNetworkProtocol)newProtocol
 {
    CFTypeRef protocolValue = [self.protocols objectAtIndex:newProtocol];
    [self setObject:(id)protocolValue forKey:(id)kSecAttrProtocol];
 }
 
-- (AuthenticationType)authenticationType
+- (OKAuthenticationType)authenticationType
 {
    CFTypeRef authType = [self objectForKey:(id)kSecAttrAuthenticationType];
    return [self.authenticationTypes indexOfObject:(id)authType];
 }
 
-- (void)setAuthenticationType:(AuthenticationType)newAuthType
+- (void)setAuthenticationType:(OKAuthenticationType)newAuthType
 {
    CFTypeRef authType = [self.authenticationTypes objectAtIndex:newAuthType];
    [self setObject:(id)authType forKey:(id)kSecAttrAuthenticationType];
@@ -128,9 +120,6 @@
 #pragma mark -
 
 @implementation OKInternetPassword(PrivateMethods)
-
-@dynamic protocols;
-@dynamic authenticationTypes;
 
 - (NSArray *)protocols
 {

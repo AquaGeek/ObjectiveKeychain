@@ -41,13 +41,6 @@
 
 @implementation OKKey
 
-@dynamic keyClass;
-@dynamic applicationLabel;
-@dynamic permanent;
-@dynamic tag;
-@dynamic keyType;
-@dynamic keySizeInBits;
-@dynamic effectiveKeySize;
 @dynamic canEncrypt;
 @dynamic canDecrypt;
 @dynamic canDerive;
@@ -62,10 +55,9 @@
 }
 
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
-- (KeyClass)keyClass
+- (OKKeyClass)keyClass
 {
    CFTypeRef keyClass = [self objectForKey:(id)kSecAttrKeyClass];
    return [self.keyClasses indexOfObject:(id)keyClass];
@@ -103,7 +95,7 @@
    [self setObject:newTagData forKey:(id)kSecAttrApplicationTag];
 }
 
-- (KeyType)keyType
+- (OKKeyType)keyType
 {
    CFTypeRef keyType = [self objectForKey:(id)kSecAttrKeyType];
    return [self.keyTypes indexOfObject:(id)keyType];
@@ -127,9 +119,6 @@
 #pragma mark -
 
 @implementation OKKey(PrivateMethods)
-
-@dynamic keyClasses;
-@dynamic keyTypes;
 
 - (NSArray *)keyClasses
 {

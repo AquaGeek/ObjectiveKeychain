@@ -29,7 +29,5 @@
 #import <Foundation/Foundation.h>
 
 @interface OKIdentity : NSObject
-{
-}
 
 @end

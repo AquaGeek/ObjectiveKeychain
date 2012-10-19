@@ -29,8 +29,6 @@
 #import "OKKeychainItem.h"
 
 @interface OKPassword : OKKeychainItem
-{
-}
 
 // The date the item was created.
 @property (readonly) NSDate *creationDate;

@@ -28,8 +28,6 @@
 #import "OKPassword.h"
 
 @interface OKGenericPassword : OKPassword
-{
-}
 
 /*
  All of these are handled by our superclass:

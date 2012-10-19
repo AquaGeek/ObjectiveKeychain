@@ -31,17 +31,13 @@
 
 @implementation OKGenericPassword
 
-@dynamic service;
-@dynamic genericData;
-
 - (CFTypeRef)classCode
 {
    return kSecClassGenericPassword;
 }
 
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (NSString *)service
 {
